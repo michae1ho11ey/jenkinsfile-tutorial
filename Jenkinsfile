@@ -24,5 +24,16 @@ pipeline {
                 input 'Do you want to deploy to stage?'
             }
         }
+
+        stage('Deploy to stage') {
+            agent any
+            environment {
+                SUPER_SECRET = 'Foo'
+            }
+
+            steps {
+                echo "The Password is: ${SUPER_SECRET}"
+            }
+        }
     }
 }
