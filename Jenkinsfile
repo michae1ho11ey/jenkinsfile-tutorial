@@ -1,6 +1,10 @@
 pipeline {
     agent none
 
+    options {
+        skipDefaultCheckout()
+    }
+
     stages {
         stage('Grab the code') {
             agent any
@@ -21,7 +25,10 @@ pipeline {
             agent none
 
             steps {
-                input 'Do you want to deploy to stage?'
+                script {
+                    def varName = input message: 'What is your name?', parameters: [string(defaultValue: '', description: '', name: 'Answer', trim: false)]
+                    env.NAME = "${varName}"
+                }
             }
         }
 
@@ -32,6 +39,7 @@ pipeline {
             }
 
             steps {
+                echo "Hi ${env.NAME}"
                 echo "The Password is: ${SUPER_SECRET}"
             }
         }
