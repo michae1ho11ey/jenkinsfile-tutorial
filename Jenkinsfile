@@ -6,7 +6,8 @@ pipeline {
             agent any
 
             steps {
-                sh 'echo "Hello World"'
+                checkout scm
+                sh 'ls'
             }
         }
     }
