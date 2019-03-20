@@ -7,6 +7,14 @@ pipeline {
 
             steps {
                 checkout scm
+            }
+        }
+
+        stage('Build the site') {
+            agent any
+            steps {
+                sh 'ls'
+                sh 'hugo'
                 sh 'ls'
             }
         }
