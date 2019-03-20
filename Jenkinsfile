@@ -13,9 +13,15 @@ pipeline {
         stage('Build the site') {
             agent any
             steps {
-                sh 'ls'
                 sh 'hugo'
-                sh 'ls'
+            }
+        }
+
+        stage('Deploy to Stage?') {
+            agent none
+
+            steps {
+                input 'Do you want to deploy to stage?'
             }
         }
     }
