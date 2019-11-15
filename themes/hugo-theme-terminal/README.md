@@ -4,6 +4,21 @@
 
 ### DEMO - https://hugo-terminal.now.sh/
 
+---
+
+- [Features](#features)
+- [Built-in shortcodes](#built-in-shortcodes)
+- [Code highlighting](#code-highlighting)
+- [How to start](#how-to-start)
+- [How to configure](#how-to-configure)
+- [Post archetype](#post-archetype)
+- [Add-ons](#add-ons)
+- [How to run your site](#how-to-run-your-site)
+- [How to edit the theme](#how-to-edit-the-theme)
+- [How to contribute](#how-to-contribute)
+- [Terminal theme user?](#terminal-theme-user)
+- [Licence](#licence)
+
 ## Features
 
 - **5 duetone themes**, depending on your preferences (orange is default, red, blue, green, pink)
@@ -22,11 +37,11 @@
 
 A custom syntax highlighting based on PrismJS. All you need to do is to wrap you code like this:
 
-<pre>
+````
 ```html
   // your code here
 ```
-</pre>
+````
 
 **Supported languages**: bash/shell, css, clike, javascript, apacheconf, actionscript, applescript, c, csharp, cpp, coffeescript, ruby, csp, css-extras, diff, django, docker, elixir, elm, markup-templating, erlang, fsharp, flow, git, go, graphql, less, handlebars, haskell, http, java, json, kotlin, latex, markdown, makefile, objectivec, ocaml, perl, php, php-extras, r, sql, processing, scss, python, jsx, typescript, toml, reason, textile, rust, sass, stylus, scheme, pug, swift, yaml, haml, twig, tsx, vim, visual-basic, wasm.
 
@@ -61,13 +76,25 @@ paginate = 5
   contentTypeName = "posts"
   # ["orange", "blue", "red", "green", "pink"]
   themeColor = "orange"
+  # if you set this to 0, only submenu trigger will be visible
+  showMenuItems = 2
+  # show selector to switch language
+  showLanguageSelector = false
+  # set theme to full screen width
+  fullWidthTheme = false
+  # center theme with default width
+  centerTheme = false
+  # set a custom favicon (default is a `themeColor` square)
+  # favicon = "favicon.ico"
 
 [languages]
   [languages.en]
+    languageName = "English"
     title = "Terminal"
     subtitle = "A simple, retro theme for Hugo"
     keywords = ""
     copyright = ""
+    menuMore = "Show more"
     readMore = "Read more"
     readOtherPosts = "Read other posts"
 
@@ -88,6 +115,18 @@ paginate = 5
 
 to `config.toml` file in your Hugo root directory and change params fields. In case you need, here's [a YAML version](https://gist.github.com/panr/9eeea6f595c257febdadc11763e3a6d1).
 
+**NOTE:** Please keep in mind that currently `main menu` doesn't support nesting.
+
+## Post archetype
+
+See the basic `post` file params supported by the theme — https://github.com/panr/hugo-theme-terminal/blob/master/archetypes/posts.md
+
+## Add-ons
+
+- **Comments** — for adding comments to your blog posts please take a look at `layouts/partials/comments.html` https://github.com/panr/hugo-theme-terminal/blob/master/layouts/partials/comments.html.
+- **Extended Head** — please take a look at `layouts/partials/extended_head.html` https://github.com/panr/hugo-theme-terminal/blob/master/layouts/partials/extended_head.html
+- **Extended Footer** — please take a look at `layouts/partials/extended_footer.html` https://github.com/panr/hugo-theme-terminal/blob/master/layouts/partials/extended_footer.html
+
 ## How to run your site
 
 From your Hugo root directory run:
@@ -100,9 +139,9 @@ and go to `localhost:1313` in your browser. From now on all the changes you make
 
 ## How to edit the theme
 
-If you have to override some of the styles, **you can do this easily** by adding `static/styles.css` in your root directory and point things you want to change.
+If you have to override some of the styles, **you can do this easily** by adding `static/style.css` in your root directory and point things you want to change.
 
-Otherwise, if you really want to edit the theme, you need to install Node dependencies. To do this, go to the theme directory (from your Hugo root directory):
+Otherwise, if you really want to edit the theme, you need to install Node dependencies. To do so, go to the theme directory (from your Hugo root directory):
 
 ```
 $ cd themes/terminal
@@ -119,6 +158,10 @@ $ yarn
 ## How to contribute
 
 If you spot any bugs, please use [Issue Tracker](https://github.com/panr/hugo-theme-terminal/issues) or if you want to add a new feature directly please create a new [Pull Request](https://github.com/panr/hugo-theme-terminal/pulls).
+
+## Terminal theme user?
+
+I'd be happy to know more about you and what you are doing. If you want to share it, please make a contribution and [add your site to the list](https://github.com/panr/hugo-theme-terminal/blob/master/USERS.md)! 🤗
 
 ## Licence
 
