@@ -1,6 +1,6 @@
 baseurl = "http://jenkins-test-site.net"
 languageCode = "en-us"
-theme = "hugo-theme-terminal"
+theme = "hugo-kiera"
 paginate = 5
 
 [params]
