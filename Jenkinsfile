@@ -42,7 +42,7 @@ pipeline {
             steps {
                 writeFile(file: 'webserver.key', text: "${env.SSH_KEY}")
                 sh 'chmod 600 webserver.key'
-                sh "rsync -avhzP ./public/ -e 'ssh -o StrictHostKeyChecking=no' -e 'ssh -i webserver.key' ${WEB_HOST_USER}@${env.WEB_HOST_IP}:${WEB_HOST_PATH}/"
+                sh "rsync -avhzP ./public/ -e \'ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null\' -e \'ssh -i webserver.key\' ${WEB_HOST_USER}@${env.WEB_HOST_IP}:${WEB_HOST_PATH}/"
                 sh 'rm webserver.key'
             }
         }
