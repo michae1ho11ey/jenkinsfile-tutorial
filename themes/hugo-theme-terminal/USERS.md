@@ -18,7 +18,8 @@
 - https://schacherbauer.dev **Markus Schacherbauer** (Student Developer)
 - https://rinma.dev **Marvin Dalheimer** (Software Developer)
 - https://lunar.computer **Lunar Computer** (DevOps Engineer)
-- https://naxxfish.net **Chris Roberts** (Broadcast SYstems Engineerr)
+- https://naxxfish.net **Chris Roberts** (Broadcast Systems Engineer)
+- https://security.jtang.dev **Jonathan Tang** (Student & Software Engineer)
 
 <!--
 TEMPLATE:
