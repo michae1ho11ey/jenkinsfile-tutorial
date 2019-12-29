@@ -17,9 +17,9 @@ pipeline {
         stage('Build the Site') {
             agent any
 
-            steps (
+            steps {
                 sh 'hugo'
-            )
+            }
         }
     }
 }
