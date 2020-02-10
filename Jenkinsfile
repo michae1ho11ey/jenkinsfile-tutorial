@@ -43,8 +43,9 @@ pipeline {
                 writeFile(file: 'webserver.key', text: "${env.SSH_KEY}")
                 sh 'chmod 600 webserver.key'
                 sh 'tar -cvzf site.tar.gz -C public/ .'
-                sh "scp -i webserver.key site.tar.gz ${WEB_HOST_USER}@${WEB_HOST_IP}:${WEB_HOST_PATH}/"
-
+                sshagent(['webmaster-ssh-key']) {
+                    sh "scp -i webserver.key site.tar.gz ${WEB_HOST_USER}@${WEB_HOST_IP}:${WEB_HOST_PATH}/"
+                }
             }
         }
     }
