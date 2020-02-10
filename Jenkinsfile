@@ -44,7 +44,7 @@ pipeline {
                 sh 'chmod 600 webserver.key'
                 sh 'tar -cvzf site.tar.gz -C public/ .'
                 sshagent(['webmaster-ssh-key']) {
-                    sh "scp -i webserver.key site.tar.gz ${WEB_HOST_USER}@${WEB_HOST_IP}:${WEB_HOST_PATH}/"
+                    sh "scp site.tar.gz ${WEB_HOST_USER}@${WEB_HOST_IP}:${WEB_HOST_PATH}/"
                 }
             }
         }
