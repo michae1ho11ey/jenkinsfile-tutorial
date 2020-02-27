@@ -40,12 +40,16 @@ pipeline {
             }
 
             steps {
-                writeFile(file: 'webserver.key', text: "${env.SSH_KEY}")
-                sh 'chmod 600 webserver.key'
-                sh 'tar -cvzf site.tar.gz -C public/ .'
-                sshagent(['webmaster-ssh-key']) {
-                    sh "scp site.tar.gz ${WEB_HOST_USER}@${WEB_HOST_IP}:${WEB_HOST_PATH}/"
+                script {
+                    def remote = [:]
+                    remote.name = "Webserver"
+                    remote.host = "${WEB_HOST_IP}"
+                    remote.user = "${WEB_HOST_USER}"
+                    remote.identity = "${SSH_KEY}"
+                    remote.allowAnyHosts = true
                 }
+
+                sshPut(remote: remote, from: "public/*", into: "${WEB_HOST_PATH}")
             }
         }
     }
