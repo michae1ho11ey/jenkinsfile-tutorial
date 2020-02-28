@@ -1,4 +1,4 @@
-baseurl = "http://jenkins-test-site.net"
+baseurl = ""
 languageCode = "en-us"
 theme = "hugo-kiera"
 paginate = 5
