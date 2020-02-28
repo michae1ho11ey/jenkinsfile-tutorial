@@ -33,23 +33,11 @@ pipeline {
         stage('Deploy to Prod') {
             agent any
             environment {
-                WEB_HOST_IP = '165.227.8.12'
-                WEB_HOST_USER = 'webmaster'
-                WEB_HOST_PATH = '/var/www/html'
-                SSH_KEY = credentials('webserver-ssh-key')
+                WEB_HOST_PATH = '/var/www/html/'
             }
 
             steps {
-                script {
-                    def remote = [:]
-                    remote.name = "Webserver"
-                    remote.host = "${WEB_HOST_IP}"
-                    remote.user = "${WEB_HOST_USER}"
-                    remote.identity = "${SSH_KEY}"
-                    remote.allowAnyHosts = true
-                }
-
-                sshPut(remote: remote, from: "public/*", into: "${WEB_HOST_PATH}")
+                sh "rsync -avhP public/ ${WEB_HOST_PATH}"
             }
         }
     }
